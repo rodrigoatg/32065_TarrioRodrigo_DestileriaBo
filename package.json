@@ -1,0 +1,52 @@
+{
+  
+  "dependencies": {
+  
+    
+  "express": "^4.18.1",
+  
+    
+  "node": "^18.7.0"
+  
+  },
+  
+  "name": "32065_tarriorodrigo_destileriabo",
+  
+  "version": "1.0.0",
+  
+  "main": "index.js",
+  
+  "scripts": {
+  
+    
+  "test": "echo \"Error: no test specified\" && exit 1"
+  
+  },
+  
+  "repository": {
+  
+    
+  "type": "git",
+  
+    
+  "url": "git+https://github.com/rodrigoatg/32065_TarrioRodrigo_DestileriaBo.git"
+  
+  },
+  
+  "keywords": [],
+  
+  "author": "",
+  
+  "license": "ISC",
+  
+  "bugs": {
+  
+    
+  "url": "https://github.com/rodrigoatg/32065_TarrioRodrigo_DestileriaBo/issues"
+  
+  },
+  
+  "homepage": "https://github.com/rodrigoatg/32065_TarrioRodrigo_DestileriaBo#readme",
+  
+  "description": ""
+}
