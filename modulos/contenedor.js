@@ -15,9 +15,9 @@ class Contenedor{
 
     save(objeto){
 
-        nuevoId = this.info[this.info.length() - 1] + 1;
+        const nuevoId = this.info[this.info.length() - 1] + 1;
 
-        nuevoObjeto = {nuevoId, ...objeto};
+        const nuevoObjeto = {nuevoId, ...objeto};
 
         this.info = {...this.info, ...nuevoObjeto};
         this.fs.writeFile(this.name, JSON.stringify(this.info, null, 2), error => {
