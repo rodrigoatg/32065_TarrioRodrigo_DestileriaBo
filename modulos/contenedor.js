@@ -42,6 +42,18 @@ class Contenedor{
         return this.info
     }
 
+
+    getPosById(idRecibido){
+        let pos = 0;
+        for( const producto of this.info){
+            if(producto.id === idRecibido){
+                return pos;
+            }
+            pos++;
+        }
+        return -1
+    }
+
     deleteByID(idRecibido){
         let i = 0;
         for( const producto of this.info){
@@ -62,6 +74,8 @@ class Contenedor{
             console.log('Escritura exitosa');
         })        
     }
+
+    
 
     deleteAll(){
         this.fs.writeFile(this.name, "", error => {
