@@ -3,26 +3,25 @@
 
 //Variables
 const express = require('express');
+const { Router } = express;
 const { isNull } = require('util');
 const app = express();
 
 //configuraciones necesarias
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+router.use(express.json());
+router.use(express.urlencoded({extended: true}));
 
+
+const router = new Router();
 const contenedor = require('./contenedor');
 const productos = new contenedor("../productos.txt");
 
 //Funciones
-app.get('/', (req, res) => {
-    res.send('<h1 style="color:blue;">Bienvenidos al servidor express</h1>')
-})
-
-app.get('/productos', (req, res) => {
+router.get('/', (req, res) => {
     res.send({productos: productos.getAll()});
 })
 
-app.get('/api/productos/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const { id } = req.params;
     let pos = -1;
     let i = 0
@@ -36,7 +35,7 @@ app.get('/api/productos/:id', (req, res) => {
 })
 
 //recibe un producto y lo agrega, retorna el id  y el producto
-app.post('/productos', (req, res) => {
+router.post('/', (req, res) => {
     const { producto } = req.body;
     const newId = parseInt(productos.length) + 1;
     productos.push({id: newId, ...producto});
@@ -44,7 +43,7 @@ app.post('/productos', (req, res) => {
 })
 
 //recibe un producto y lo updatea segun su id
-app.put('/api/productos/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     const { producto } = req.body;
     const { id } = req.params;
     const posProductoBuscado = 0;
@@ -54,14 +53,20 @@ app.put('/api/productos/:id', (req, res) => {
 })
 
 //elimina un producto segun su id
-app.delete('/api/productos/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     const { id } = req.params;
     productos.deleteByID(id);
 })
 
-const server = app.listen(8080, () =>{
-    console.log(`Servidor http escuchando en el puerto ${server.address().port}`)
-});
+//uses
+app.use('/api/productos', router);
+
+/* ------------------------------------------------------ */
+/* Server Listen */
+const PORT = 8080
+const server = app.listen(PORT, () => {
+    console.log(`Servidor escuchando en el puerto ${server.address().port}`)
+})
 
 server.on('error', error => console.log(`Error en servidor ${error}`));
 
