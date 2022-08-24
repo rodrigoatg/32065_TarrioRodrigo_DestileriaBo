@@ -74,7 +74,8 @@ function makeHtmlList(mensajes) {
     }).join(" ");
 }
 
-inputUsername.addEventListener('input', () => {
+inputUsername.addEventListener('input', (e) => {
+    e.preventDefault();
     const hayEmail = inputUsername.value.length
     const hayTexto = inputMensaje.value.length
     inputMensaje.disabled = !hayEmail

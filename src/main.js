@@ -16,6 +16,7 @@ const app = express();
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 
+
 //--------------------------------------------
 
 // configuro el socket
@@ -36,17 +37,6 @@ io.on('connection', async socket => {
         io.sockets.emit('mensajes', mensajesApi);
     });
 });
-
-socket.on('new-producto', data => {
-    productosApi.push(data);
-    io.sockets.emit('productos', productosApi);
-});
-
-socket.on('new-message', data => {
-    mensajesApi.push(data);
-    io.sockets.emit('mensajes', mensajesApi);
-});
-
 
 //--------------------------------------------
 

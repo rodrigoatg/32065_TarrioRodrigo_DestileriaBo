@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "express": "^4.18.1",
-    "express-handlebars": "^6.0.6",
+    "express-handlebars": "^5.2.0",
     "node": "^18.7.0",
-    "socket.io": "^4.5.1"
+    "socket.io": "^4.1.3"
   },
   "name": "32065_tarriorodrigo_destileriabo",
   "version": "1.0.0",
@@ -23,5 +23,6 @@
     "url": "https://github.com/rodrigoatg/32065_TarrioRodrigo_DestileriaBo/issues"
   },
   "homepage": "https://github.com/rodrigoatg/32065_TarrioRodrigo_DestileriaBo#readme",
+  "devDependencies": {},
   "description": ""
 }
